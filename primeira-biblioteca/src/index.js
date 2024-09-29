@@ -10,7 +10,10 @@ fs.readFile(caminhoArquivo, 'utf-8', (erro, texto) => {
 
 function quebraEmParagrafos(texto) {
     const paragrafos = texto.toLowerCase().split('\n');
-    const contagem = paragrafos.map(paragrafo => verificaPalavrasRepetidas(paragrafo));
+    const contagem = paragrafos.flatMap(paragrafo => {
+        if (!paragrafo) return [];
+        return verificaPalavrasRepetidas(paragrafo);
+    });
 
     console.log(contagem);
 }
