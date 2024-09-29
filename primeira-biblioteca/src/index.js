@@ -5,10 +5,17 @@ const argumentoCaminhoArquivo = 2;
 const caminhoArquivo = process.argv[argumentoCaminhoArquivo];
 
 fs.readFile(caminhoArquivo, 'utf-8', (erro, texto) => {
-    console.log(texto);
-    
+    verificaPalavrasRepetidas(texto);
 });
 
-console.log(caminhoArquivo);
+function verificaPalavrasRepetidas(texto) {
+    const listaPalavras = texto.split(' ');
+    const resultado = {};
 
-// console.log(process.argv);
+    listaPalavras.forEach(palavra => {
+        resultado[palavra] = (resultado[palavra] || 0) + 1;
+    });
+
+    console.log(resultado);
+    
+}
