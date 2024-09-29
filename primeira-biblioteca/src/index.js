@@ -15,14 +15,19 @@ function quebraEmParagrafos(texto) {
     console.log(contagem);
 }
 
+function limpaPalavras(palavra) {
+    return palavra.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, '');
+}
+
 function verificaPalavrasRepetidas(texto) {
     const listaPalavras = texto.split(' ');
     const resultado = {};
 
     listaPalavras.forEach(palavra => {
-        resultado[palavra] = (resultado[palavra] || 0) + 1;
+        const palavraLimpa = limpaPalavras(palavra);
+        if (palavraLimpa.length >= 3) { resultado[palavraLimpa] = (resultado[palavraLimpa] || 0) + 1; }
     });
 
     return resultado;
-    
+
 }
