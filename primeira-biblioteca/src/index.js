@@ -5,21 +5,25 @@ const argumentoCaminhoArquivo = 2;
 const caminhoArquivo = process.argv[argumentoCaminhoArquivo];
 
 fs.readFile(caminhoArquivo, 'utf-8', (erro, texto) => {
-    quebraEmParagrafos(texto);
+    if (erro) {
+        console.log(erro.code);
+        return;
+    }
+    contaPalavras(texto);
 });
 
-function quebraEmParagrafos(texto) {
-    const paragrafos = texto.toLowerCase().split('\n');
+function contaPalavras(texto) {
+    const paragrafos = extraiParagrafos(texto);
     const contagem = paragrafos.flatMap(paragrafo => {
         if (!paragrafo) return [];
         return verificaPalavrasRepetidas(paragrafo);
     });
 
-    console.log(contagem);
+    console.log(contagem); 
 }
 
-function limpaPalavras(palavra) {
-    return palavra.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, '');
+function extraiParagrafos(texto) {
+   return texto.toLowerCase().split('\n'); 
 }
 
 function verificaPalavrasRepetidas(texto) {
@@ -33,4 +37,8 @@ function verificaPalavrasRepetidas(texto) {
 
     return resultado;
 
+}
+
+function limpaPalavras(palavra) {
+    return palavra.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, '');
 }
