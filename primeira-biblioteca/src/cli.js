@@ -20,14 +20,31 @@ fs.readFile(caminhoArquivo, 'utf-8', (erro, texto) => {
     }
 });
 
-async function criaESalvaArquivo(listaPalavras, caminhoDestino) {
+// async function criaESalvaArquivo(listaPalavras, caminhoDestino) {
+//     const novoArquivo = caminhoDestino + '/resultado.txt';
+//     const textoPalavras = JSON.stringify(listaPalavras, null, 2);
+//     try {
+//         await fs.promises.writeFile(novoArquivo, textoPalavras);
+//         console.log('Arquivo criado com sucesso!');
+
+//     } catch (error) {
+//         throw error;
+//     }
+// }
+
+function criaESalvaArquivo(listaPalavras, caminhoDestino) {
     const novoArquivo = caminhoDestino + '/resultado.txt';
     const textoPalavras = JSON.stringify(listaPalavras, null, 2);
-    try {
-        await fs.promises.writeFile(novoArquivo, textoPalavras);
-        console.log('Arquivo criado com sucesso!');
 
-    } catch (error) {
-        throw error;
-    }
+    fs.promises.writeFile(novoArquivo, textoPalavras)
+        .then(() => {
+            console.log('Arquivo criado com sucesso!');
+        })
+        .catch((erro) => {
+            throw erro;
+        })
+        .finally(() => {
+            console.log('Processo finalizado!');
+        });
+
 }
