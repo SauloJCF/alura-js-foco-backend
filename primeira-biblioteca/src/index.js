@@ -1,4 +1,5 @@
 const fs = require('fs');
+const trataErros = require('./erros/funcoesErro');
 
 const argumentoCaminhoArquivo = 2;
 
@@ -11,11 +12,7 @@ fs.readFile(caminhoArquivo, 'utf-8', (erro, texto) => {
         }
         contaPalavras(texto);
     } catch (erro) {
-        if (erro.code === 'ENOENT') {
-            console.log('Arquivo de texto não encontrado!');
-        } else {
-            console.log('Um erro inexperado aconteceu durante o processamento do arquivo, tente novamente!\n' + erro.message);
-        }
+        trataErros(erro);
     }
 });
 
