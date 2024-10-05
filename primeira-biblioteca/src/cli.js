@@ -20,11 +20,11 @@ fs.readFile(caminhoArquivo, 'utf-8', (erro, texto) => {
     }
 });
 
-function criaESalvaArquivo(listaPalavras, caminhoDestino) {
+async function criaESalvaArquivo(listaPalavras, caminhoDestino) {
     const novoArquivo = caminhoDestino + '/resultado.txt';
     const textoPalavras = JSON.stringify(listaPalavras, null, 2);
     try {
-        fs.promises.writeFile(novoArquivo, textoPalavras);
+        await fs.promises.writeFile(novoArquivo, textoPalavras);
         console.log('Arquivo criado com sucesso!');
 
     } catch (error) {
