@@ -14,7 +14,7 @@ fs.readFile(caminhoArquivo, 'utf-8', (erro, texto) => {
         if (erro.code === 'ENOENT') {
             console.log('Arquivo de texto não encontrado!');
         } else {
-            console.log('Um erro inexperado aconteceu durante o processamento do arquivo, tente novamente!\n ' + erro.message);
+            console.log('Um erro inexperado aconteceu durante o processamento do arquivo, tente novamente!\n' + erro.message);
         }
     }
 });
