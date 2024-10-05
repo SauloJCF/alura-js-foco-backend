@@ -5,11 +5,18 @@ const argumentoCaminhoArquivo = 2;
 const caminhoArquivo = process.argv[argumentoCaminhoArquivo];
 
 fs.readFile(caminhoArquivo, 'utf-8', (erro, texto) => {
-    if (erro) {
-        console.log(erro.code);
-        return;
+    try {
+        if (erro) {
+            throw erro;
+        }
+        contaPalavras(texto);
+    } catch (erro) {
+        if (erro.code === 'ENOENT') {
+            console.log('Arquivo de texto não encontrado!');
+        } else {
+            console.log('Um erro inexperado aconteceu durante o processamento do arquivo, tente novamente!\n ' + erro.message);
+        }
     }
-    contaPalavras(texto);
 });
 
 function contaPalavras(texto) {
@@ -19,11 +26,11 @@ function contaPalavras(texto) {
         return verificaPalavrasRepetidas(paragrafo);
     });
 
-    console.log(contagem); 
+    console.log(contagem);
 }
 
 function extraiParagrafos(texto) {
-   return texto.toLowerCase().split('\n'); 
+    return texto.toLowerCase().split('\n');
 }
 
 function verificaPalavrasRepetidas(texto) {
