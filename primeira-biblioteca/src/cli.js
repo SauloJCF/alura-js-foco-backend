@@ -4,6 +4,7 @@ import trataErros from './erros/funcoesErro.js';
 import { contaPalavras } from './index.js';
 import { montaSaidaArquivo } from './helper.js';
 import { Command } from 'commander';
+import chalk from 'chalk';
 
 const program = new Command();
 
@@ -15,7 +16,7 @@ program
         const { texto, destino } = options;
 
         if (!texto || !destino) {
-            console.error('erro: favor inserir caminho de origem e destino');
+            console.error(chalk.red('erro: favor inserir caminho de origem e destino'));
             program.help();
             return;
         }
@@ -47,7 +48,7 @@ async function criaESalvaArquivo(listaPalavras, caminhoDestino) {
     const textoPalavras = montaSaidaArquivo(listaPalavras);
     try {
         await fs.promises.writeFile(novoArquivo, textoPalavras);
-        console.log('Arquivo criado com sucesso!');
+        console.log(chalk.green('Arquivo criado com sucesso!'));
 
     } catch (error) {
         throw error;
