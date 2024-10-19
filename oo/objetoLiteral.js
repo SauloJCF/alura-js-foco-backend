@@ -5,7 +5,22 @@ const user = {
     role: 'estudante',
     ativo: true,
     exibirInfos: function () {
-        console.log(this.nome, this.email);
-        
+        console.log(this.nome, this.email);  
     }
 }
+
+// user.exibirInfos();
+
+// const exibirInfos = user.exibirInfos;
+
+// exibirInfos();
+
+const exibirInfos = function () {
+    console.log(this.nome, this.email);
+}
+
+// exibirInfos();
+
+const exibirDadosUser = exibirInfos.bind(user);
+
+exibirDadosUser();
