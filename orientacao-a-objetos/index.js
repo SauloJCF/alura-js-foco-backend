@@ -6,10 +6,9 @@ const novoUsuario = new User('Juliana', 'j@j.com', '2024-01-01');
 
 console.log(novoUsuario.exibeInfos());
 
-novoUsuario.nome = 'Marcia';
+const admin = new Admin('Rodrigo', 'r@r.com', '2024-01-01');
 
-console.log(novoUsuario);
+console.log(admin);
 
-console.log(novoUsuario.nome);
-
+console.log(admin.exibeInfos());
 

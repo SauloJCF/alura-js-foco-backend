@@ -4,6 +4,11 @@ export default class Admin extends User {
     constructor(nome, email, nascimento, role = 'admin', ativo = true) {
         super(nome, email, nascimento, role, ativo);
     }
+
+    exibeNome() {
+        console.log(this.#nome);
+        
+    }
 }
 
 // const admin = new Admin('Rodrigo', 'r@r.com', '2024-01-01');
