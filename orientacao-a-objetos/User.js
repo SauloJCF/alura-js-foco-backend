@@ -1,22 +1,28 @@
 export default class User {
+    #nome;
+    #email;
+    #nascimento;
+    #role;
+    #ativo;
+
     constructor(nome, email, nascimento, role, ativo = true) {
-        this.nome = nome;
-        this.email = email;
-        this.nascimento = nascimento;
-        this.role = role || 'estudante';
-        this.ativo = ativo;
+        this.#nome = nome;
+        this.#email = email;
+        this.#nascimento = nascimento;
+        this.#role = role || 'estudante';
+        this.#ativo = ativo;
     }
 
     exibeInfos() {
-        return `${this.nome}, ${this.email}`;
+        return `${this.#nome}, ${this.#email}`;
     }
 }
 
-const user = new User('Saulo', 's@s.com', '2024-01-01');
+// const user = new User('Saulo', 's@s.com', '2024-01-01');
 
-console.log(user);
+// console.log(user);
 
-console.log(user.exibeInfos());
+// console.log(user.exibeInfos());
 
-console.log(User.prototype.isPrototypeOf(user));
+// console.log(User.prototype.isPrototypeOf(user));
 
