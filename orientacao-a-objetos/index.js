@@ -10,5 +10,8 @@ const admin = new Admin('Rodrigo', 'r@r.com', '2024-01-01');
 
 console.log(admin);
 
-console.log(admin.exibeInfos());
+console.log(admin.nome);
+
+
+//console.log(admin.exibeInfos());
 
