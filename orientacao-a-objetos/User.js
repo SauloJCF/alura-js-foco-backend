@@ -32,6 +32,12 @@ export default class User {
     get ativo() {
         return this.#ativo;
     }
+
+    set nome(value) {
+        if (value === '')
+            throw new Error('Nome inválido!');
+        this.#nome = value;
+    }
     
     exibeInfos() {
         return `${this.nome}, ${this.email}, ${this.nascimento}, ${this.role}, ${this.ativo}`;
