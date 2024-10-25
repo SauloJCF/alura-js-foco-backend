@@ -50,7 +50,9 @@ export default class User2 {
     }
 }
 
-const novoUser = new User2('Juliana', 'Souza', 'j@j.com', '2021-01-01')
-console.log(novoUser.nome) //'Juliana'
-novoUser.nome = 'Juliana Silva Souza'
-console.log(novoUser.nome) //'Juliana'
+const novoUser = new User2('Juliana', 'Souza', 'j@j.com', '2021-01-01');
+console.log(novoUser.nome); //'Juliana'
+novoUser.nome = 'Juliana Silva Souza';
+console.log(novoUser.nome) ;//'Juliana'
+novoUser.email = 't@t.com';
+console.log(novoUser.email);

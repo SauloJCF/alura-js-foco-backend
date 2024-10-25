@@ -3,18 +3,23 @@ import Admin from './Admin.js';
 import Docente from './Docente.js';
 
 const novoUsuario = new User('Juliana', 'j@j.com', '2024-01-01');
+const admin = new Admin('Rodrigo', 'r@r.com', '2024-01-01');
 
 console.log(novoUsuario.exibeInfos());
+console.log(admin.exibeInfos());
 
-novoUsuario.nome = 'Julia';
 
-console.log(novoUsuario.exibeInfos());
+// console.log(novoUsuario.exibeInfos());
 
-novoUsuario.nome = '';
+// novoUsuario.nome = 'Julia';
 
-console.log(novoUsuario.exibeInfos());
+// console.log(novoUsuario.exibeInfos());
 
-// const admin = new Admin('Rodrigo', 'r@r.com', '2024-01-01');
+// novoUsuario.nome = '';
+
+// console.log(novoUsuario.exibeInfos());
+
+
 
 // console.log(admin);
 
