@@ -4,9 +4,11 @@ import Docente from './Docente.js';
 
 const novoUsuario = new User('Juliana', 'j@j.com', '2024-01-01');
 const admin = new Admin('Rodrigo', 'r@r.com', '2024-01-01');
+const docente = new Docente('Carlos', 'c@c.com', '2024-01-01');
 
 console.log(novoUsuario.exibeInfos());
 console.log(admin.exibeInfos());
+console.log(docente.exibeInfos());
 
 
 // console.log(novoUsuario.exibeInfos());

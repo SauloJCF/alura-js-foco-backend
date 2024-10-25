@@ -40,7 +40,15 @@ export default class User {
     }
     
     exibeInfos() {
-        return `${this.nome}, ${this.email}, ${this.nascimento}, ${this.role}, ${this.ativo}`;
+        if(this.role === 'estudante') {
+            return `Estudante: ${this.nome}`;
+        }
+        if(this.role === 'admin') {
+            return `Admin: ${this.nome}`;
+        }
+        if(this.role === 'docente') {
+            return `Docente: ${this.nome}`;
+        }
     }
 }
 
