@@ -24,11 +24,11 @@ export default class User {
     get nascimento() {
         return this.#nascimento;
     }
-    
+
     get role() {
         return this.#role;
     }
-    
+
     get ativo() {
         return this.#ativo;
     }
@@ -38,17 +38,21 @@ export default class User {
             throw new Error('Nome inválido!');
         this.#nome = value;
     }
-    
+
     exibeInfos() {
-        if(this.role === 'estudante') {
+        if (this.role === 'estudante') {
             return `Estudante: ${this.nome}`;
         }
-        if(this.role === 'admin') {
+        if (this.role === 'admin') {
             return `Admin: ${this.nome}`;
         }
-        if(this.role === 'docente') {
+        if (this.role === 'docente') {
             return `Docente: ${this.nome}`;
         }
+    }
+
+    static exibeInfosGenericas(nome, email) {
+        return `${nome}, ${email}`;
     }
 }
 

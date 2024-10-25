@@ -10,6 +10,9 @@ console.log(novoUsuario.exibeInfos());
 console.log(admin.exibeInfos());
 console.log(docente.exibeInfos());
 
+console.log(User.exibeInfosGenericas('Cláudio', 'd@d.com'));
+
+
 
 // console.log(novoUsuario.exibeInfos());
 
