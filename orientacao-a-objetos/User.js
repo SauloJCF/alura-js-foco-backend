@@ -40,15 +40,13 @@ export default class User {
     }
 
     exibeInfos() {
-        if (this.role === 'estudante') {
-            return `Estudante: ${this.nome}`;
-        }
-        if (this.role === 'admin') {
-            return `Admin: ${this.nome}`;
-        }
-        if (this.role === 'docente') {
-            return `Docente: ${this.nome}`;
-        }
+       const tipos =  {
+        estudante:`estudante: ${this.nome}`,
+        admin: `admin: ${this.nome}`,
+        docente: `docente: ${this.nome}`
+       };
+
+       return tipos[arguments[0]]
     }
 
     static exibeInfosGenericas(nome, email) {
